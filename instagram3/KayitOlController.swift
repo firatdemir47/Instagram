@@ -134,7 +134,15 @@ class KayitOlController: UIViewController {
                        
                         hud.dismiss(animated: true)
                         self.gorunumuDuzelt()
-                        
+                        let keywindow = UIApplication.shared.connectedScenes
+                            .filter({$0.activationState == .foregroundActive})
+                            .map({$0 as? UIWindowScene})
+                            .compactMap({$0})
+                            .first?.windows
+                            .filter({$0.isKeyWindow}).first
+                        guard let anaTabBarController = keywindow?.rootViewController as? AnaTabBarController else {return}
+                        anaTabBarController.Gorunumuolustur() //kullanıcı profil contollera gideriz
+                        self.dismiss(animated: true , completion: nil) //oturum açma ekranı kapanacak . kapatmazsanız profil sayfasına gidemezsiniz
                         
                     }}
             }
@@ -156,8 +164,26 @@ class KayitOlController: UIViewController {
         basarilihud.show(in: self.view)
         basarilihud.dismiss(afterDelay:2)
     }
+    let btnHesabimVar : UIButton = {
+        let btn = UIButton(type: .system)
+        let attrBaslik = NSMutableAttributedString(string: "Zaten bir hesabınız var mı?",attributes: [
+            .font : UIFont.systemFont(ofSize: 16), .foregroundColor : UIColor.lightGray])
+        attrBaslik.append(NSAttributedString(string: "Oturum Aç." ,attributes: [
+            .font : UIFont.boldSystemFont(ofSize: 16),.foregroundColor : UIColor.rgbDonustur(red: 20, green: 155, blue: 235)]))
+        btn.setAttributedTitle(attrBaslik, for: .normal)
+        btn.addTarget(self, action: #selector(btnhesabımvarpressed), for: .touchUpInside)
+        return btn
+        
+    }()
+    @objc fileprivate func btnhesabımvarpressed(){
+        navigationController?.popViewController(animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(btnHesabimVar)
+        btnHesabimVar.anchor(top: nil, bottom: view.safeAreaLayoutGuide.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 60)
+        view.backgroundColor = .white
+        navigationController?.isNavigationBarHidden = true
         // Do any additional setup after loading the view.
         view.addSubview(btnfotografekle)
         

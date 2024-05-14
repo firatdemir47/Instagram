@@ -66,12 +66,15 @@ class KullaniciProfilHeader : UICollectionViewCell{
     }()
     let btnGrid : UIButton = {
         let btn = UIButton(type: .system)
+       // let symbl = UIImage(systemName: ".bounce")
+        //btn.setImage(symbl, for: .normal)
         btn.setImage(#imageLiteral(resourceName: "Izgara"), for: .normal)
         return btn
         
     }()
     let btnListe : UIButton = {
         let btn = UIButton(type: .system)
+    
         btn.setImage(#imageLiteral(resourceName: "Liste"), for: .normal)
         btn.tintColor = UIColor(white: 0, alpha: 0.2)
         return btn

@@ -12,7 +12,9 @@
 		7138E79B2BEA413C00EF77E2 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 7138E79A2BEA413C00EF77E2 /* SDWebImage */; };
 		7138E79D2BEA413C00EF77E2 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7138E79C2BEA413C00EF77E2 /* SDWebImageMapKit */; };
 		7138E7A02BEA423D00EF77E2 /* Kullanici.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138E79F2BEA423D00EF77E2 /* Kullanici.swift */; };
+		713A8A0E2BF22838009B78DC /* FotografSeciciCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713A8A0D2BF22838009B78DC /* FotografSeciciCell.swift */; };
 		715CBFE32BE1797D004276A6 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 715CBFE22BE1797D004276A6 /* JGProgressHUD */; };
+		719A8F3B2BEFA92900C00B86 /* FotografSeciciController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A8F3A2BEFA92900C00B86 /* FotografSeciciController.swift */; };
 		719C7D492BE1298B006DEBB0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C7D482BE1298B006DEBB0 /* File.swift */; };
 		719C7D4B2BE12B0D006DEBB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 719C7D4A2BE12B0D006DEBB0 /* GoogleService-Info.plist */; };
 		719C7D4E2BE12BFF006DEBB0 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 719C7D4D2BE12BFF006DEBB0 /* FirebaseAnalytics */; };
@@ -44,6 +46,8 @@
 		719C7D822BE12BFF006DEBB0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 719C7D812BE12BFF006DEBB0 /* FirebaseStorageCombine-Community */; };
 		71F7EBE42BE68AD3007F5AC4 /* AnaTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F7EBE32BE68AD3007F5AC4 /* AnaTabBarController.swift */; };
 		71F7EBE62BE68C86007F5AC4 /* KullaniciProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F7EBE52BE68C86007F5AC4 /* KullaniciProfilController.swift */; };
+		71F855532BF3415200139A97 /* FotografSeciciHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F855522BF3415200139A97 /* FotografSeciciHeader.swift */; };
+		71F855552BF34CD300139A97 /* FotografPaylasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F855542BF34CD300139A97 /* FotografPaylasController.swift */; };
 		71FF9C032BE122BA00BD3C18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9C022BE122BA00BD3C18 /* AppDelegate.swift */; };
 		71FF9C052BE122BA00BD3C18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9C042BE122BA00BD3C18 /* SceneDelegate.swift */; };
 		71FF9C072BE122BA00BD3C18 /* KayitOlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9C062BE122BA00BD3C18 /* KayitOlController.swift */; };
@@ -56,10 +60,14 @@
 		7100E2232BEB7A240057DFC5 /* OturumACCOntroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OturumACCOntroller.swift; sourceTree = "<group>"; };
 		7138E7972BEA367900EF77E2 /* KullaniciProfilHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KullaniciProfilHeader.swift; sourceTree = "<group>"; };
 		7138E79F2BEA423D00EF77E2 /* Kullanici.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kullanici.swift; sourceTree = "<group>"; };
+		713A8A0D2BF22838009B78DC /* FotografSeciciCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotografSeciciCell.swift; sourceTree = "<group>"; };
+		719A8F3A2BEFA92900C00B86 /* FotografSeciciController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotografSeciciController.swift; sourceTree = "<group>"; };
 		719C7D482BE1298B006DEBB0 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		719C7D4A2BE12B0D006DEBB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		71F7EBE32BE68AD3007F5AC4 /* AnaTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnaTabBarController.swift; sourceTree = "<group>"; };
 		71F7EBE52BE68C86007F5AC4 /* KullaniciProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KullaniciProfilController.swift; sourceTree = "<group>"; };
+		71F855522BF3415200139A97 /* FotografSeciciHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotografSeciciHeader.swift; sourceTree = "<group>"; };
+		71F855542BF34CD300139A97 /* FotografPaylasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotografPaylasController.swift; sourceTree = "<group>"; };
 		71FF9BFF2BE122BA00BD3C18 /* instagram3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FF9C022BE122BA00BD3C18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71FF9C042BE122BA00BD3C18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +144,17 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		719A8F392BEFA90B00C00B86 /* FotografEkle */ = {
+			isa = PBXGroup;
+			children = (
+				719A8F3A2BEFA92900C00B86 /* FotografSeciciController.swift */,
+				713A8A0D2BF22838009B78DC /* FotografSeciciCell.swift */,
+				71F855522BF3415200139A97 /* FotografSeciciHeader.swift */,
+				71F855542BF34CD300139A97 /* FotografPaylasController.swift */,
+			);
+			path = FotografEkle;
+			sourceTree = "<group>";
+		};
 		719C7D472BE12978006DEBB0 /* yararlı dosyalar */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +182,7 @@
 		71FF9C012BE122BA00BD3C18 /* instagram3 */ = {
 			isa = PBXGroup;
 			children = (
+				719A8F392BEFA90B00C00B86 /* FotografEkle */,
 				7100E2222BEB7A110057DFC5 /* OturumAc */,
 				7138E79E2BEA421B00EF77E2 /* Model */,
 				7138E7952BEA362400EF77E2 /* KullaniciProfil */,
@@ -289,7 +309,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				713A8A0E2BF22838009B78DC /* FotografSeciciCell.swift in Sources */,
 				7100E2242BEB7A240057DFC5 /* OturumACCOntroller.swift in Sources */,
+				719A8F3B2BEFA92900C00B86 /* FotografSeciciController.swift in Sources */,
 				71FF9C072BE122BA00BD3C18 /* KayitOlController.swift in Sources */,
 				7138E7982BEA367900EF77E2 /* KullaniciProfilHeader.swift in Sources */,
 				71F7EBE42BE68AD3007F5AC4 /* AnaTabBarController.swift in Sources */,
@@ -297,6 +319,8 @@
 				719C7D492BE1298B006DEBB0 /* File.swift in Sources */,
 				71FF9C032BE122BA00BD3C18 /* AppDelegate.swift in Sources */,
 				7138E7A02BEA423D00EF77E2 /* Kullanici.swift in Sources */,
+				71F855552BF34CD300139A97 /* FotografPaylasController.swift in Sources */,
+				71F855532BF3415200139A97 /* FotografSeciciHeader.swift in Sources */,
 				71FF9C052BE122BA00BD3C18 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

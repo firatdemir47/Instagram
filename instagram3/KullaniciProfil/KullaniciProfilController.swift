@@ -17,9 +17,29 @@ class KullaniciProfilController : UICollectionViewController{
        
         kullaniciyiGetir()
         collectionView.register(KullaniciProfilHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerID")
-        collectionView.register(UICollectionViewCell.self,forCellWithReuseIdentifier: paylasımHucreID)
+        collectionView.register(KullaniciPaylasimFotoCell.self,forCellWithReuseIdentifier: paylasımHucreID)
         btnOturumKapatOlustur()
-    }
+       
+       }
+    var paylasimlar = [Paylasim]()
+    fileprivate func  PaylasimlariGetirFs(){
+        guard let gecerliKullaniciID = Auth.auth().currentUser?.uid else {return}
+        Firestore.firestore().collection("Paylasimlar").document(gecerliKullaniciID).collection("Fotograf_Paylasimlari").order(by: "PaylasimTarihi ",descending: false)
+            .addSnapshotListener{(querySnapshot , hata) in
+                if let hata = hata {
+                    print("Paylaşımlar getirilirken hata meydana geldi :" ,hata)
+                    return
+                }
+                querySnapshot?.documentChanges.forEach({(degisiklik) in
+                    if degisiklik.type == .added{
+                        let paylasimVerisi = degisiklik.document.data()
+                       let paylasim = Paylasim(sozlukVerisi: paylasimVerisi)
+                        self.paylasimlar.append(paylasim)
+                    }})
+                
+                self.paylasimlar.reverse()
+                self.collectionView.reloadData()
+            }}
     fileprivate func btnOturumKapatOlustur()
     {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "Liste3").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(oturumKapat))
@@ -59,11 +79,11 @@ class KullaniciProfilController : UICollectionViewController{
         return CGSize(width: genislik, height: genislik)
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return paylasimlar.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let paylasımHucre = collectionView.dequeueReusableCell(withReuseIdentifier: paylasımHucreID, for: indexPath)
-        paylasımHucre.backgroundColor = .blue
+        let paylasımHucre = collectionView.dequeueReusableCell(withReuseIdentifier: paylasımHucreID, for: indexPath) as! KullaniciPaylasimFotoCell
+        paylasımHucre.paylasim = paylasimlar[indexPath.row]
         return paylasımHucre
     }
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -84,7 +104,7 @@ class KullaniciProfilController : UICollectionViewController{
             guard let kullaniciVerisi = snapshot?.data() else {return}
            //let kullaniciAdi = kullaniciVerisi["kullaniciAdi"] as? String
             self.gecerliKullanici = Kullanici(kullaniciVerisi: kullaniciVerisi)
-            self.collectionView.reloadData()
+            self.PaylasimlariGetirFs()
             self.navigationItem.title = self.gecerliKullanici?.KullaniciAdi
      
         }

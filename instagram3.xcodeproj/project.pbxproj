@@ -48,6 +48,8 @@
 		71F7EBE62BE68C86007F5AC4 /* KullaniciProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F7EBE52BE68C86007F5AC4 /* KullaniciProfilController.swift */; };
 		71F855532BF3415200139A97 /* FotografSeciciHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F855522BF3415200139A97 /* FotografSeciciHeader.swift */; };
 		71F855552BF34CD300139A97 /* FotografPaylasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F855542BF34CD300139A97 /* FotografPaylasController.swift */; };
+		71F855572BF3A68C00139A97 /* Paylasim.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F855562BF3A68C00139A97 /* Paylasim.swift */; };
+		71F855592BF3ABC300139A97 /* KullaniciPaylasimFotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F855582BF3ABC300139A97 /* KullaniciPaylasimFotoCell.swift */; };
 		71FF9C032BE122BA00BD3C18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9C022BE122BA00BD3C18 /* AppDelegate.swift */; };
 		71FF9C052BE122BA00BD3C18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9C042BE122BA00BD3C18 /* SceneDelegate.swift */; };
 		71FF9C072BE122BA00BD3C18 /* KayitOlController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF9C062BE122BA00BD3C18 /* KayitOlController.swift */; };
@@ -68,6 +70,8 @@
 		71F7EBE52BE68C86007F5AC4 /* KullaniciProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KullaniciProfilController.swift; sourceTree = "<group>"; };
 		71F855522BF3415200139A97 /* FotografSeciciHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotografSeciciHeader.swift; sourceTree = "<group>"; };
 		71F855542BF34CD300139A97 /* FotografPaylasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotografPaylasController.swift; sourceTree = "<group>"; };
+		71F855562BF3A68C00139A97 /* Paylasim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paylasim.swift; sourceTree = "<group>"; };
+		71F855582BF3ABC300139A97 /* KullaniciPaylasimFotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KullaniciPaylasimFotoCell.swift; sourceTree = "<group>"; };
 		71FF9BFF2BE122BA00BD3C18 /* instagram3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = instagram3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FF9C022BE122BA00BD3C18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71FF9C042BE122BA00BD3C18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 			children = (
 				71F7EBE52BE68C86007F5AC4 /* KullaniciProfilController.swift */,
 				7138E7972BEA367900EF77E2 /* KullaniciProfilHeader.swift */,
+				71F855582BF3ABC300139A97 /* KullaniciPaylasimFotoCell.swift */,
 			);
 			path = KullaniciProfil;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				7138E79F2BEA423D00EF77E2 /* Kullanici.swift */,
+				71F855562BF3A68C00139A97 /* Paylasim.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,6 +326,8 @@
 				71FF9C032BE122BA00BD3C18 /* AppDelegate.swift in Sources */,
 				7138E7A02BEA423D00EF77E2 /* Kullanici.swift in Sources */,
 				71F855552BF34CD300139A97 /* FotografPaylasController.swift in Sources */,
+				71F855592BF3ABC300139A97 /* KullaniciPaylasimFotoCell.swift in Sources */,
+				71F855572BF3A68C00139A97 /* Paylasim.swift in Sources */,
 				71F855532BF3415200139A97 /* FotografSeciciHeader.swift in Sources */,
 				71FF9C052BE122BA00BD3C18 /* SceneDelegate.swift in Sources */,
 			);

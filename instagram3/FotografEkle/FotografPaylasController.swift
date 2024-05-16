@@ -97,7 +97,8 @@ target: self, action: #selector(btnPaylasPressed))
                              "GoruntuYukseklik":paylasimFotograf.size.height ,
                              "PaylasimTarihi ":Timestamp(date: Date())] as [String : Any]
         var ref : DocumentReference? = nil
-        ref = Firestore.firestore().collection("Paylasimlar").addDocument(data: eklenecekVeri , completion: {(hata) in
+        ref = Firestore.firestore().collection("Paylasimlar").document(gecerliKullaniciID).collection("Fotograf_Paylasimlari")
+            .addDocument(data: eklenecekVeri , completion: {(hata) in
             
             if let hata = hata {
                 print("Paylaşım Kaydedilirken Hata Meydana Geldi : " , hata)

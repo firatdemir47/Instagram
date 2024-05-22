@@ -14,6 +14,7 @@
 		7138E7A02BEA423D00EF77E2 /* Kullanici.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7138E79F2BEA423D00EF77E2 /* Kullanici.swift */; };
 		713A8A0E2BF22838009B78DC /* FotografSeciciCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713A8A0D2BF22838009B78DC /* FotografSeciciCell.swift */; };
 		715CBFE32BE1797D004276A6 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 715CBFE22BE1797D004276A6 /* JGProgressHUD */; };
+		71991D5C2BFE29E600A52346 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 71991D5B2BFE29E600A52346 /* Algorithms */; };
 		719A8F3B2BEFA92900C00B86 /* FotografSeciciController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719A8F3A2BEFA92900C00B86 /* FotografSeciciController.swift */; };
 		719C7D492BE1298B006DEBB0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719C7D482BE1298B006DEBB0 /* File.swift */; };
 		719C7D4B2BE12B0D006DEBB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 719C7D4A2BE12B0D006DEBB0 /* GoogleService-Info.plist */; };
@@ -103,6 +104,7 @@
 				719C7D5E2BE12BFF006DEBB0 /* FirebaseCrashlytics in Frameworks */,
 				719C7D7E2BE12BFF006DEBB0 /* FirebaseRemoteConfigSwift in Frameworks */,
 				719C7D702BE12BFF006DEBB0 /* FirebaseInAppMessaging-Beta in Frameworks */,
+				71991D5C2BFE29E600A52346 /* Algorithms in Frameworks */,
 				7138E79D2BEA413C00EF77E2 /* SDWebImageMapKit in Frameworks */,
 				719C7D622BE12BFF006DEBB0 /* FirebaseDatabaseSwift in Frameworks */,
 				719C7D6C2BE12BFF006DEBB0 /* FirebaseFunctions in Frameworks */,
@@ -253,6 +255,7 @@
 				715CBFE22BE1797D004276A6 /* JGProgressHUD */,
 				7138E79A2BEA413C00EF77E2 /* SDWebImage */,
 				7138E79C2BEA413C00EF77E2 /* SDWebImageMapKit */,
+				71991D5B2BFE29E600A52346 /* Algorithms */,
 			);
 			productName = instagram3;
 			productReference = 71FF9BFF2BE122BA00BD3C18 /* instagram3.app */;
@@ -286,6 +289,7 @@
 				719C7D4C2BE12BFF006DEBB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				715CBFE12BE1797D004276A6 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				7138E7992BEA413C00EF77E2 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				71991D5A2BFE29E600A52346 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = 71FF9C002BE122BA00BD3C18 /* Products */;
 			projectDirPath = "";
@@ -572,6 +576,14 @@
 				minimumVersion = 2.2.0;
 			};
 		};
+		71991D5A2BFE29E600A52346 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		719C7D4C2BE12BFF006DEBB0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -597,6 +609,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 715CBFE12BE1797D004276A6 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
+		};
+		71991D5B2BFE29E600A52346 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 71991D5A2BFE29E600A52346 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
 		};
 		719C7D4D2BE12BFF006DEBB0 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

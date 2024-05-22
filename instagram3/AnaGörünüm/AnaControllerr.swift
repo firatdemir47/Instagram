@@ -14,12 +14,14 @@ class AnaControllerr : UICollectionViewController {
         collectionView.backgroundColor = .white
         collectionView.register(AnaPaylasımCelll.self,forCellWithReuseIdentifier: hucreID)
         butonlariOlustur()
-        paylasimlariGetir()
+        kullaniciyiGetir()
+        
     }
     var paylasimlar = [Paylasim]()
     fileprivate func paylasimlariGetir(){
         paylasimlar.removeAll()
         guard let gecerliKullaniciID = Auth.auth().currentUser?.uid else {return}
+        guard let gecerliKullanici = gecerliKullanici else {return}
         Firestore.firestore().collection("Paylasimlar").document(gecerliKullaniciID)
             .collection("Fotograf_Paylasimlari").order(by: "PaylasimTarihi " ,descending: false)
             .addSnapshotListener{(querySnapshot , hata) in
@@ -30,7 +32,7 @@ class AnaControllerr : UICollectionViewController {
                 querySnapshot?.documentChanges.forEach({(degisiklik) in
                     if degisiklik.type == .added {
                         let paylasimVerisi = degisiklik.document.data()
-                        let paylasim = Paylasim(sozlukVerisi: paylasimVerisi)
+                        let paylasim = Paylasim(kullanici : gecerliKullanici,sozlukVerisi: paylasimVerisi)
                         self.paylasimlar.append(paylasim)
                         
                     }
@@ -50,6 +52,19 @@ class AnaControllerr : UICollectionViewController {
         hucre.paylasim = paylasimlar[indexPath.row]
       
         return hucre
+    }
+    var gecerliKullanici : Kullanici?
+    fileprivate func kullaniciyiGetir(){
+        guard let gecerliKullaniciID = Auth.auth().currentUser?.uid else {return}
+        Firestore.firestore().collection("kullanicilar").document(gecerliKullaniciID).getDocument{(snapshot,hata) in
+            if let hata = hata {
+                print("Kullanıcı Bİlgileri Getirilemedi :" ,hata)
+                return
+            }
+            guard let kullaniciVerisi = snapshot?.data() else {return}
+            self.gecerliKullanici = Kullanici(kullaniciVerisi: kullaniciVerisi)
+            self.paylasimlariGetir()
+        }
     }
 }
 extension AnaControllerr : UICollectionViewDelegateFlowLayout{

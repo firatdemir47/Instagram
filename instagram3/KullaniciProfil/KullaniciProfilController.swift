@@ -24,6 +24,7 @@ class KullaniciProfilController : UICollectionViewController{
     var paylasimlar = [Paylasim]()
     fileprivate func  PaylasimlariGetirFs(){
         guard let gecerliKullaniciID = Auth.auth().currentUser?.uid else {return}
+
         Firestore.firestore().collection("Paylasimlar").document(gecerliKullaniciID).collection("Fotograf_Paylasimlari").order(by: "PaylasimTarihi ",descending: false)
             .addSnapshotListener{(querySnapshot , hata) in
                 if let hata = hata {
@@ -31,9 +32,10 @@ class KullaniciProfilController : UICollectionViewController{
                     return
                 }
                 querySnapshot?.documentChanges.forEach({(degisiklik) in
+                    
                     if degisiklik.type == .added{
                         let paylasimVerisi = degisiklik.document.data()
-                       let paylasim = Paylasim(sozlukVerisi: paylasimVerisi)
+                        let paylasim = Paylasim(kullanici: self.gecerliKullanici!,sozlukVerisi: paylasimVerisi)
                         self.paylasimlar.append(paylasim)
                     }})
                 

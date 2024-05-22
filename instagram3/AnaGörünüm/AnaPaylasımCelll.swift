@@ -12,17 +12,27 @@ class AnaPaylasımCelll : UICollectionViewCell {
             guard let url = paylasim?.PaylasimGoruntuURL ,
                   let goruntuUrl = URL(string: url) else {return}
             imgPaylasimFoto.sd_setImage(with: goruntuUrl,completed: nil)
+            lblkUllaniciAdi.text = paylasim?.kullanici.KullaniciAdi
+            guard let pUrl = paylasim?.kullanici.profilGoruntuURL,
+                  let ProfilGoruntuURL = URL(string: pUrl) else {return}
+            imgKullaniciProfilFoto.sd_setImage(with: ProfilGoruntuURL,completed: nil)
+           attrPaylasimMesajıOlustur()
         }
+    }
+    fileprivate func  attrPaylasimMesajıOlustur(){
+        guard let paylasim = self.paylasim else {return}
+        let attrText = NSMutableAttributedString(string: paylasim.kullanici.KullaniciAdi,attributes: [
+         .font : UIFont.boldSystemFont(ofSize: 14)])
+        attrText.append(NSAttributedString(string: "\(paylasim.Mesaj  ?? "Veri Yok") ",attributes: [.font : UIFont.systemFont(ofSize: 14)]))
+         attrText.append(NSAttributedString(string: "\n\n",attributes: [.font : UIFont.systemFont(ofSize: 4)]))
+         attrText.append(NSAttributedString(string: "1 hafta önce",attributes: [
+             .font : UIFont.systemFont(ofSize: 14),.foregroundColor : UIColor.gray]))
+        lblPaylasimMesaj.attributedText = attrText
     }
     let lblPaylasimMesaj : UILabel = {
         let lbl = UILabel()
-       let attrText = NSMutableAttributedString(string: "Kullanıcı Adı",attributes: [
-        .font : UIFont.boldSystemFont(ofSize: 14)])
-        attrText.append(NSAttributedString(string: "bu paylaşım biraz uzun bir mesaj içermeli .Alt Satrıa geçip Geçmediğini kontrol etmeliyiz",attributes: [.font : UIFont.systemFont(ofSize: 14)]))
-        attrText.append(NSAttributedString(string: "\n\n",attributes: [.font : UIFont.systemFont(ofSize: 4)]))
-        attrText.append(NSAttributedString(string: "1 hafta önce",attributes: [
-            .font : UIFont.systemFont(ofSize: 14),.foregroundColor : UIColor.gray]))
-        lbl.attributedText = attrText
+
+     
         lbl.numberOfLines = 0
         
         return lbl

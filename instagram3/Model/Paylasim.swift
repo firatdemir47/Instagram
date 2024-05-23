@@ -20,7 +20,7 @@ struct Paylasim {
         self.GoruntuGenislik = sozlukVerisi["GoruntuGenislik"] as? Double
         self.GoruntuYukseklik = sozlukVerisi["GoruntuYukseklik"] as? Double
         self.KullaniciId = sozlukVerisi["KullaniciId"] as? String
-        self.Mesaj = sozlukVerisi["Mesaj"] as? String
+        self.Mesaj = sozlukVerisi["Mesaj "] as? String
         self.PaylasimTarihi = sozlukVerisi[" PaylasimTarihi"] as? Timestamp
         
     }

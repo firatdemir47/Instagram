@@ -47,6 +47,8 @@
 		719C7D7E2BE12BFF006DEBB0 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 719C7D7D2BE12BFF006DEBB0 /* FirebaseRemoteConfigSwift */; };
 		719C7D802BE12BFF006DEBB0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 719C7D7F2BE12BFF006DEBB0 /* FirebaseStorage */; };
 		719C7D822BE12BFF006DEBB0 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 719C7D812BE12BFF006DEBB0 /* FirebaseStorageCombine-Community */; };
+		71A60D5D2BFF0D2200F864EB /* KullanıcıAraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A60D5C2BFF0D2200F864EB /* KullanıcıAraController.swift */; };
+		71A60D5F2BFF145E00F864EB /* KullanıcıAraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A60D5E2BFF145E00F864EB /* KullanıcıAraCell.swift */; };
 		71F7EBE42BE68AD3007F5AC4 /* AnaTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F7EBE32BE68AD3007F5AC4 /* AnaTabBarController.swift */; };
 		71F7EBE62BE68C86007F5AC4 /* KullaniciProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F7EBE52BE68C86007F5AC4 /* KullaniciProfilController.swift */; };
 		71F855532BF3415200139A97 /* FotografSeciciHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F855522BF3415200139A97 /* FotografSeciciHeader.swift */; };
@@ -71,6 +73,8 @@
 		719A8F3A2BEFA92900C00B86 /* FotografSeciciController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotografSeciciController.swift; sourceTree = "<group>"; };
 		719C7D482BE1298B006DEBB0 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		719C7D4A2BE12B0D006DEBB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		71A60D5C2BFF0D2200F864EB /* KullanıcıAraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KullanıcıAraController.swift"; sourceTree = "<group>"; };
+		71A60D5E2BFF145E00F864EB /* KullanıcıAraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KullanıcıAraCell.swift"; sourceTree = "<group>"; };
 		71F7EBE32BE68AD3007F5AC4 /* AnaTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnaTabBarController.swift; sourceTree = "<group>"; };
 		71F7EBE52BE68C86007F5AC4 /* KullaniciProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KullaniciProfilController.swift; sourceTree = "<group>"; };
 		71F855522BF3415200139A97 /* FotografSeciciHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FotografSeciciHeader.swift; sourceTree = "<group>"; };
@@ -185,6 +189,15 @@
 			path = "yararlı dosyalar";
 			sourceTree = "<group>";
 		};
+		71A60D5B2BFF0CFE00F864EB /* Ara */ = {
+			isa = PBXGroup;
+			children = (
+				71A60D5C2BFF0D2200F864EB /* KullanıcıAraController.swift */,
+				71A60D5E2BFF145E00F864EB /* KullanıcıAraCell.swift */,
+			);
+			path = Ara;
+			sourceTree = "<group>";
+		};
 		71FF9BF62BE122BA00BD3C18 = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +217,7 @@
 		71FF9C012BE122BA00BD3C18 /* instagram3 */ = {
 			isa = PBXGroup;
 			children = (
+				71A60D5B2BFF0CFE00F864EB /* Ara */,
 				71991D5D2BFE2D1500A52346 /* AnaGörünüm */,
 				719A8F392BEFA90B00C00B86 /* FotografEkle */,
 				7100E2222BEB7A110057DFC5 /* OturumAc */,
@@ -337,6 +351,7 @@
 				713A8A0E2BF22838009B78DC /* FotografSeciciCell.swift in Sources */,
 				7100E2242BEB7A240057DFC5 /* OturumACCOntroller.swift in Sources */,
 				719A8F3B2BEFA92900C00B86 /* FotografSeciciController.swift in Sources */,
+				71A60D5F2BFF145E00F864EB /* KullanıcıAraCell.swift in Sources */,
 				71FF9C072BE122BA00BD3C18 /* KayitOlController.swift in Sources */,
 				71991D612BFE2EDF00A52346 /* AnaPaylasımCelll.swift in Sources */,
 				7138E7982BEA367900EF77E2 /* KullaniciProfilHeader.swift in Sources */,
@@ -351,6 +366,7 @@
 				71F855572BF3A68C00139A97 /* Paylasim.swift in Sources */,
 				71F855532BF3415200139A97 /* FotografSeciciHeader.swift in Sources */,
 				71FF9C052BE122BA00BD3C18 /* SceneDelegate.swift in Sources */,
+				71A60D5D2BFF0D2200F864EB /* KullanıcıAraController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

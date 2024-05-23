@@ -36,7 +36,11 @@ class KullanıcıAraController : UICollectionViewController ,UISearchBarDelegate
         searchBar.anchor(top: navBar?.topAnchor, bottom: navBar?.bottomAnchor , leading: navBar?.leadingAnchor, trailing: navBar?.trailingAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 10, paddingRight: -10, width: 0, height: 0)
         collectionView.register(KullanıcıAraCell.self,forCellWithReuseIdentifier: hucreId)
         collectionView.alwaysBounceVertical = true
+        collectionView.keyboardDismissMode = .onDrag
         kullanicilariGetir()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        searchBar.isHidden = false
     }
     var filtrelenmisKullanicilar = [Kullanici]()
     var kullaniclar = [Kullanici]()
@@ -50,7 +54,10 @@ class KullanıcıAraController : UICollectionViewController ,UISearchBarDelegate
             querySnapshot?.documentChanges.forEach({(degisiklik) in
                 if degisiklik.type == .added {
                     let kullanici = Kullanici(kullaniciVerisi: degisiklik.document.data())
-                    self.kullaniclar.append(kullanici)
+                    if kullanici.KullaniciID != Auth.auth().currentUser?.uid {
+                        self.kullaniclar.append(kullanici)
+                    }
+                 
                 }})
             self.kullaniclar.sort { (k1, k2 ) -> Bool in
                 return k1.KullaniciAdi.compare(k2.KullaniciAdi) == .orderedAscending
@@ -67,6 +74,14 @@ class KullanıcıAraController : UICollectionViewController ,UISearchBarDelegate
        
         cell.kullanici = filtrelenmisKullanicilar[indexPath.row]
         return cell
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        searchBar.isHidden = true
+        searchBar.resignFirstResponder()
+        let kullanici = filtrelenmisKullanicilar[indexPath.row]
+        let kullaniciProfilController = KullaniciProfilController(collectionViewLayout: UICollectionViewFlowLayout())
+        kullaniciProfilController.kullaniciID = kullanici.KullaniciID
+        navigationController?.pushViewController(kullaniciProfilController, animated: true)
     }
 }
 extension KullanıcıAraController : UICollectionViewDelegateFlowLayout{

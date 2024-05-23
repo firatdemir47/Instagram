@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 class KullaniciProfilController : UICollectionViewController{
+    var kullaniciID : String?
     let paylasımHucreID = "paylasımHucreID"
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,8 @@ class KullaniciProfilController : UICollectionViewController{
        }
     var paylasimlar = [Paylasim]()
     fileprivate func  PaylasimlariGetirFs(){
-        guard let gecerliKullaniciID = Auth.auth().currentUser?.uid else {return}
-
+        //guard let gecerliKullaniciID = Auth.auth().currentUser?.uid else {return}
+        guard let gecerliKullaniciID = self.gecerliKullanici?.KullaniciID else {return}
         Firestore.firestore().collection("Paylasimlar").document(gecerliKullaniciID).collection("Fotograf_Paylasimlari").order(by: "PaylasimTarihi ",descending: false)
             .addSnapshotListener{(querySnapshot , hata) in
                 if let hata = hata {
@@ -97,7 +98,8 @@ class KullaniciProfilController : UICollectionViewController{
     var gecerliKullanici : Kullanici?
     fileprivate func kullaniciyiGetir(){
         
-        guard let gecerliKullaniciID = Auth.auth().currentUser?.uid else{return}
+        //guard let gecerliKullaniciID = Auth.auth().currentUser?.uid else{return}
+        let gecerliKullaniciID = kullaniciID ?? Auth.auth().currentUser?.uid ?? ""
         Firestore.firestore().collection("kullanicilar").document(gecerliKullaniciID).getDocument {(snapshot , hata) in
             if let hata = hata {
                 print ("kullanici Bİlgileri Getirelemedi :" ,hata)

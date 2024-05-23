@@ -61,7 +61,8 @@ class AnaTabBarController : UITabBarController{
          viewControllers = [anaNavController,araNavController,ekleNavContoroller,begeniNavContoroller,navController]
          */
         let anaNavController = navControllerOlustur(seciliOlmayanIkon: UIImage(systemName: "house")!, seciliIkon: UIImage(systemName: "house.fill")! ,rootViewController: AnaControllerr(collectionViewLayout: UICollectionViewFlowLayout()))
-        let araNavController = navControllerOlustur(seciliOlmayanIkon: UIImage(systemName: "magnifyingglass.circle")!, seciliIkon: UIImage(systemName: "magnifyingglass.circle.fill")! )
+        let araNavController = navControllerOlustur(seciliOlmayanIkon: UIImage(systemName: "magnifyingglass.circle")!, seciliIkon: UIImage(systemName:  "magnifyingglass.circle.fill")!, rootViewController: KullanıcıAraController(collectionViewLayout: UICollectionViewFlowLayout()))
+       
         let ekleNavController = navControllerOlustur(seciliOlmayanIkon: UIImage(systemName: "plus.app")!, seciliIkon: UIImage(systemName: "plus.app.fill")! )
         
         let begenNavController = navControllerOlustur(seciliOlmayanIkon: UIImage(systemName: "heart")!, seciliIkon: UIImage(systemName: "heart.fill")! )

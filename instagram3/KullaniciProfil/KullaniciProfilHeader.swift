@@ -12,22 +12,115 @@ import SDWebImage
 class KullaniciProfilHeader : UICollectionViewCell{
     var gecerliKullanici : Kullanici? {
         didSet{
+            takipButonuAyarla()
             guard let url = URL(string: gecerliKullanici?.profilGoruntuURL ?? "") else {return}
             imgProfilGoruntu.sd_setImage(with: url,completed: nil)
             lblKullaniciAdi.text = gecerliKullanici?.KullaniciAdi
         }
         
     }
-    let btnprofilDüzenle : UIButton = {
+    fileprivate func takipButonuAyarla() {
+        guard let oturumKID = Auth.auth().currentUser?.uid else {return}
+        guard let gecerliKID = gecerliKullanici?.KullaniciID else {return}
+        if oturumKID != gecerliKID {
+            Firestore.firestore().collection("TakipEdiyor").document(oturumKID).getDocument { (snapshot, hata) in
+                if let hata = hata {
+                    print("Takip Verisi ALınamadı:" ,hata.localizedDescription)
+                    return
+                }
+                guard let takipVerileri = snapshot?.data() else {return}
+                if let veri = takipVerileri[gecerliKID]{
+                    let takip = veri as! Int
+                    print(takip)
+                    if takip == 1 {
+                        self.btnprofilDüzenle.setTitle("Takipten Çıkar", for: .normal)
+                    } }
+                    else {
+                        self.btnprofilDüzenle.setTitle("Takip Et", for: .normal)
+                        self.btnprofilDüzenle.backgroundColor = UIColor.rgbDonustur(red: 20, green: 155, blue: 240)
+                        self.btnprofilDüzenle.setTitleColor(.white, for: .normal)
+                        self.btnprofilDüzenle.layer.borderColor = UIColor(white: 0, alpha: 0.3).cgColor
+                        self.btnprofilDüzenle.layer.borderWidth = 1
+                    }
+                    
+                }
+            }
+        else {
+            self.btnprofilDüzenle.setTitle("Profili Düzenle", for: .normal)
+        }
+               
+        }
+        
+    
+   lazy var btnprofilDüzenle : UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("Profil Düzenle", for: .normal)
+     
         btn.setTitleColor(.black ,for: .normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         btn.layer.borderColor = UIColor.lightGray.cgColor
         btn.layer.borderWidth = 1
         btn.layer.cornerRadius = 5
+        btn.addTarget(self, action: #selector(btnProfil_Takip_Düzenle), for: .touchUpInside)
         return btn
     }()
+    @objc fileprivate func btnProfil_Takip_Düzenle(){
+        guard let oturumuAcanKID = Auth.auth().currentUser?.uid else {return}
+            guard let gecerliKID = gecerliKullanici?.KullaniciID else {return}
+        
+        if btnprofilDüzenle.titleLabel?.text == "Takipten Çıkar" {
+            Firestore.firestore().collection("TakiEdiyor").document(oturumuAcanKID).updateData([gecerliKID: FieldValue.delete()]){(hata) in
+                if let hata = hata {
+                    print("Takipten Çıkarırken Hata Meydana Geldi : \(hata.localizedDescription)")
+                    
+                }
+                print("\(self.gecerliKullanici?.KullaniciAdi ?? "") Adlı Kullanıcı Takipten Çıkarıldı ")
+                self.btnprofilDüzenle.backgroundColor = UIColor.rgbDonustur(red: 20, green: 155, blue: 240)
+                self.btnprofilDüzenle.setTitleColor(.white, for: .normal)
+                self.btnprofilDüzenle.layer.borderWidth = 1
+                self.btnprofilDüzenle.setTitle("Takip Et", for: .normal)
+            }
+            return
+        }
+        
+        
+        let eklenecekDeger = [gecerliKID : 1]
+        
+        
+        Firestore.firestore().collection("TakipEdiyor").document(oturumuAcanKID).getDocument{(snapshot , hata) in
+            if let hata = hata {
+                print("Takip verisi alınmadı : \(hata.localizedDescription)")
+                return
+            }
+            if snapshot?.exists == true {
+                Firestore.firestore().collection("TakipEdiyor").document(oturumuAcanKID).updateData(eklenecekDeger){
+                    (hata) in
+                    if let hata = hata {
+                        print("Takip Verisi Güncellemesi Başarısız : \(hata.localizedDescription)")
+                        return
+                    }
+                    print("Takip İşlemi Başarılı")
+                    self.btnprofilDüzenle.setTitle("Takipten Çıkar", for: .normal)
+                    self.btnprofilDüzenle.setTitleColor(.black, for: .normal)
+                    self.btnprofilDüzenle.backgroundColor = .white
+                    self.btnprofilDüzenle.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+                    self.btnprofilDüzenle.layer.borderColor = UIColor.lightGray.cgColor
+                    self.btnprofilDüzenle.layer.borderWidth = 1
+                    self.btnprofilDüzenle.layer.cornerRadius = 5
+                }
+            }
+            else {
+                Firestore.firestore().collection("Takip Ediyor").document(oturumuAcanKID).setData(eklenecekDeger)
+                { (hata) in
+                    if let hata = hata {
+                        print("Takip Verisi Kaydı Başarısız : \(hata.localizedDescription)")
+                        return
+                    }
+                    print("Takip işlemi Başarılı")
+                }            }
+            
+            }
+        }
+    
     let lblPaylasım : UILabel = {
         
         let lbl = UILabel()

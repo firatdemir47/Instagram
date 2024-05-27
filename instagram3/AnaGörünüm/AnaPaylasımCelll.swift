@@ -25,7 +25,8 @@ class AnaPaylasımCelll : UICollectionViewCell {
          .font : UIFont.boldSystemFont(ofSize: 14)])
         attrText.append(NSAttributedString(string: "\(paylasim.Mesaj  ?? "Veri Yok") ",attributes: [.font : UIFont.systemFont(ofSize: 14)]))
          attrText.append(NSAttributedString(string: "\n\n",attributes: [.font : UIFont.systemFont(ofSize: 4)]))
-         attrText.append(NSAttributedString(string: "1 hafta önce",attributes: [
+        let paylasimZaman = paylasim.PaylasimTarihi.dateValue()
+        attrText.append(NSAttributedString(string: paylasimZaman.zamanOnceHesap() ,attributes: [
              .font : UIFont.systemFont(ofSize: 14),.foregroundColor : UIColor.gray]))
         lblPaylasimMesaj.attributedText = attrText
     }

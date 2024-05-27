@@ -85,7 +85,8 @@ target: self, action: #selector(btnPaylasPressed))
                 }
             }
     }
-    } 
+    }
+    static let guncelleNotification = Notification.Name("PaylasimlariGüncelle")
     fileprivate func paylasimKaydetFS(  GoruntuURL : String){
         guard let paylasimFotograf = secilenFotograf else {return}
         guard let mesaj = txtMesaj.text,
@@ -107,7 +108,9 @@ target: self, action: #selector(btnPaylasPressed))
                 
             }
             print("Paylaşım Başarıyla Kaydedildi ve Paylaşım Döküman ID'si :",ref?.documentID)
-            self.dismiss(animated: true , completion: nil)
+            self.dismiss(animated: true , completion: nil )
+            
+                NotificationCenter.default.post(name: FotografPaylasController.guncelleNotification, object: nil)
         })
                                                                           }
     }
